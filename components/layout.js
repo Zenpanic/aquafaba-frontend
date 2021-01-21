@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Navbar from './navbar';
 
 const siteTitle = 'Aquafaba Temple';
 
 const Layout = ({ children }) => {
 
     return (
-        <div className="mx-auto">
+        <>
             <Head>
                 <link rel='icon' href='/favicon.ico' />
                 <meta
@@ -28,8 +29,9 @@ const Layout = ({ children }) => {
                 />
                 <title>{siteTitle}</title>
             </Head>
+            <Navbar />
             {children}
-        </div>
+        </>
     )
 }
 
