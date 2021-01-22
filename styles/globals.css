@@ -20,35 +20,20 @@ a {
   padding: 1em 0.5em 1em 0.5em;
   margin: auto;
   min-width: 250px;
+  z-index: 5;
 }
 
 .navLinks {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .navLinks > li {
   padding: 0 0.5em 0 0.5em;
   font-weight: 600;
   font-size: medium;
-  text-transform: uppercase;
-}
-
-@media screen and (min-width: 500px) {
-  .headerDiv {
-  margin-top: 3em;
-  }
-}
-
-@media screen and (min-width: 700px) {
-
-  .headerDiv {
-    margin-top: 5em;
-  }
-
-  .navLinks > li {
-    font-size: larger;
-  }
+  color: #A00921;
 }
 
 .headerDiv {
@@ -56,30 +41,35 @@ a {
   display: flex;
   align-content: center;
   justify-content: center;
-  
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  text-align: center; */
 }
 
 .mainLogo {
   object-fit: contain;
 }
 
-/* .mainTitle {
-  color: #10886D;
-  cursor: pointer;
-}
-
-.subMainTitle {
-  font-size: large;
-} */
-
 .introText {
   line-height: 2em;
   color: #E8AA43
+}
+
+.searchDiv {
+  padding-top: 6em;
+  margin: auto;
+}
+
+.searchBar {
+  border: 2px solid#2B957D;
+  display: block;
+  margin: auto;
+  transition: background-color 0.5s ease-in-out;
+  outline: none;
+  letter-spacing: 0.1em;
+  color: #2B957D;
+}
+
+.searchBar:focus {
+  border-color: #066D56;
+  background-color:#d3f9e7;
 }
  
 .cardContainer {
@@ -108,6 +98,7 @@ a {
   text-transform: uppercase;
   line-height: 1.4em;
   letter-spacing: 0.2em;
+  text-align: center;
 }
 
 .dishDescription {
@@ -119,34 +110,67 @@ a {
   font-weight: 700;
   font-size: larger;
   color: #F16A7F;
+  text-align: center;
 }
 
 .addToCart {
   text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  background-color: #2B957D;
+}
+
+.addToCart:hover {
+  background-color: #E8AA43;
 }
 
 .menuContainer {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-content: center;
   margin: auto;
-  padding-top: 10em;
+  padding-top: 5em;
+  margin-bottom: 5em;
 }
 
 .imageMenu {
-  padding: 1em 0 2em 0;
+  margin: 1em 0 2em 0;
+  border-color: #2B957D;
+  border-radius: 50%;
+}
+
+.errorDisplay {
+  font-size: xx-large;
+  color: #C71834;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 3em;
+}
+
+@media screen and (min-width: 500px) {
+  .headerDiv {
+  margin-top: 3em;
+  }
+}
+
+@media screen and (min-width: 700px) {
+
+  .headerDiv {
+    margin-top: 5em;
+  }
+
+  .navLinks > li {
+    font-size: larger;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .dishCard {
     width: 100%;
     padding: 2em 0 0 0;
-  }
-
-  .menuContainer {
-    padding-top: 5em;
   }
 }
 
