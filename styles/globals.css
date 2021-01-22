@@ -49,22 +49,60 @@ a {
 
 .introText {
   line-height: 2em;
-  color: #E8AA43
+  color: #E8AA43;
+  font-size: large;
+  font-weight: 500;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
-.searchDiv {
-  padding-top: 6em;
+.categoryForm {
+  padding-top: 6em;;
   margin: auto;
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: center;
+}
+
+.category {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #2b957d;
+}
+
+.category > * {
+  padding: 0 0.5em 0 0.5em;
+}
+
+@media screen and (max-width: 500px) {
+  .categoryForm {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1em;
+  }
+}
+
+
+.searchDiv {
+  padding-top: 3em;
+  margin: auto;
+  opacity: 0.5;
 }
 
 .searchBar {
   border: 2px solid#2B957D;
   display: block;
   margin: auto;
+  /* left: 50%;
+  transform: translateX(-50%);
+  position: fixed; */
   transition: background-color 0.5s ease-in-out;
   outline: none;
   letter-spacing: 0.1em;
   color: #2B957D;
+  z-index: 5;
 }
 
 .searchBar:focus {
@@ -78,12 +116,13 @@ a {
   width: 75%;
   margin: auto;
   justify-content: space-evenly;
-  padding-top: 3em;
+  padding-top: 2em;
 }
 
 .dishCard {
   max-width: 400px;
   padding: 2em;
+  margin-bottom: 2em;
 }
 
 .dishCard > * {
@@ -165,7 +204,21 @@ a {
   .navLinks > li {
     font-size: larger;
   }
+
+  .searchBar {
+    width: 50%;
+  }
 }
+
+/* @media screen and (min-width: 1100px) {
+  .searchBar {
+    opacity: 1;
+    position: static;
+    margin: auto;
+    left: inherit;
+    transform: inherit;
+  }
+} */
 
 @media screen and (max-width: 700px) {
   .dishCard {
