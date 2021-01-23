@@ -1,13 +1,22 @@
+import { Auth0Provider } from '@auth0/auth0-react';
+
 import '../styles/globals.css';
 import '../styles/tailwind.css';
 
 function App({ Component, pageProps }) {
 
-
-
   return (
 
-    <Component {...pageProps} />
+    <Auth0Provider
+      domain="zentown.eu.aut0.com"
+      clientId="Lj9jQmP1xMHKdN8pVJRAVSmnkb36Gvsh"
+      redirectUri={window.location.origin}
+    >
+
+      <Component {...pageProps} />
+
+    </Auth0Provider>
+
 
   )
 }
