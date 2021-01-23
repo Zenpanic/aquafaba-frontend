@@ -5,9 +5,20 @@ import DishCard from '../components/dishCard';
 
 const api_url = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const fetcher = (...args) => fetch(...args).then(res => res.json());
+/* const fetcher = (...args) => fetch(...args).then(res => res.json()); */
 
-const Menu = () => {
+export const getStaticProps = async () => {
+    const res = await fetch(api_url + '/dishes');
+    const data = await res.json();
+
+    return {
+        props: {
+            data,
+        },
+    }
+}
+
+const Menu = ({ data }) => {
 
     const [search, setSearch] = useState('');
 
@@ -21,9 +32,9 @@ const Menu = () => {
         setCategory(e.target.value);
     }
 
-    const { data, error } = useSWR(`${api_url}/dishes`, fetcher);
+    /* const { data, error } = useSWR(`${api_url}/dishes`, fetcher); */
 
-    if (error) return <Layout><div>Failed to load</div></Layout>
+    /* if (error) return <Layout><div>Failed to load</div></Layout> */
     if (!data) return <Layout><div>Loading...</div></Layout>
 
     const filteredDishes = data.filter(filteredDish => {
@@ -36,19 +47,19 @@ const Menu = () => {
             <form className="categoryForm">
                 <div className="category">
                     <input name="category" type="radio" value="" id="all" onChange={onCategoryChange} />
-                    <label for="all">All</label>
+                    <label htmlFor="all">All</label>
                 </div>
                 <div className="category">
                     <input name="category" type="radio" value="starter" id="starters" onChange={onCategoryChange} />
-                    <label for="starters">Starters</label>
+                    <label htmlFor="starters">Starters</label>
                 </div>
                 <div className="category">
                     <input name="category" type="radio" value="main" id="main" onChange={onCategoryChange} />
-                    <label for="main">Main Dishes</label>
+                    <label htmlFor="main">Main Dishes</label>
                 </div>
                 <div className="category">
                     <input name="category" type="radio" value="dessert" id="desserts" onChange={onCategoryChange} />
-                    <label for="desserts">Desserts</label>
+                    <label htmlFor="desserts">Desserts</label>
                 </div>
             </form>
 
@@ -60,6 +71,7 @@ const Menu = () => {
                     filteredDishes.map(dish => {
                         return (
                             <DishCard
+                                key={dish.id}
                                 name={dish.name}
                                 description={dish.description}
                                 price={dish.price}

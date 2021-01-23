@@ -175,10 +175,44 @@ a {
   margin-bottom: 5em;
 }
 
+.imageMenuContainer {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
 .imageMenu {
   margin: 1em 0 2em 0;
-  border-color: #2B957D;
   border-radius: 50%;
+}
+
+.textImageMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5em;
+  text-transform: lowercase;
+  display: none;
+  font-weight: 800;
+  width: 80%;
+  color:#04a985;
+}
+
+.imageMenuContainer:hover > .imageMenu {
+  opacity: 30%;
+}
+
+.imageMenuContainer:focus > .imageMenu {
+  opacity: 30%;
+}
+
+.imageMenuContainer:hover > .textImageMenu {
+  display: block;
+}
+
+.imageMenuContainer:focus > .textImageMenu {
+  display: block;
 }
 
 .errorDisplay {
@@ -207,6 +241,10 @@ a {
 
   .searchBar {
     width: 50%;
+  }
+
+  .textImageMenu {
+    font-size: 5em;
   }
 }
 

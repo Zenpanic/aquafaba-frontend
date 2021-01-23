@@ -23,8 +23,14 @@ const Home = () => {
       </div>
 
       <div className='menuContainer'>
-        <img className='imageMenu shadow-2xl' src='/images/menu.jpg' />
-        <img className='imageMenu shadow-2xl' src='/images/about_us.jpg' />
+        <div className='imageMenuContainer'>
+          <img className='imageMenu shadow-2xl' src='/images/menu.jpg' />
+          <h2 className='textImageMenu font-mono'>Menu</h2>
+        </div>
+        <div className='imageMenuContainer'>
+          <img className='imageMenu shadow-2xl' src='/images/about_us.jpg' />
+          <h2 className='textImageMenu font-mono'>About</h2>
+        </div>
       </div>
 
     </Layout>
