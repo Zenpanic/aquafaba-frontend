@@ -8,7 +8,7 @@ function App({ Component, pageProps }) {
   return (
 
     <Auth0Provider
-      domain="zentown.eu.aut0.com"
+      domain="zentown.eu.auth0.com"
       clientId="Lj9jQmP1xMHKdN8pVJRAVSmnkb36Gvsh"
       redirectUri="https://aquafaba-temple.vercel.app/cart"
     >
