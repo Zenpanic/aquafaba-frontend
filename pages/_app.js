@@ -10,7 +10,7 @@ function App({ Component, pageProps }) {
     <Auth0Provider
       domain="zentown.eu.aut0.com"
       clientId="Lj9jQmP1xMHKdN8pVJRAVSmnkb36Gvsh"
-      redirectUri={window.location.origin}
+      redirectUri="https://aquafaba-temple.vercel.app/cart"
     >
 
       <Component {...pageProps} />
