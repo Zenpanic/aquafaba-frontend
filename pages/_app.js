@@ -9,14 +9,13 @@ function App({ Component, pageProps }) {
 
     <Auth0Provider
       domain="zentown.eu.auth0.com"
-      clientId="Lj9jQmP1xMHKdN8pVJRAVSmnkb36Gvsh"
+      clientId={process.env.NEXT_PUBLIC_AUTH_CLIENT_ID}
       redirectUri="https://aquafaba-temple.vercel.app/cart"
     >
 
       <Component {...pageProps} />
 
     </Auth0Provider>
-
 
   )
 }
