@@ -33,7 +33,7 @@ a {
   padding: 0 0.5em 0 0.5em;
   font-weight: 600;
   font-size: medium;
-  color: #A00921;
+  color: #2b957d;
 }
 
 .headerDiv {
@@ -48,12 +48,21 @@ a {
 }
 
 .introText {
-  line-height: 2em;
+  line-height: 3em;
+  width: 100%;
   color: #E8AA43;
   font-size: large;
-  font-weight: 500;
+  font-weight: 600;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* margin: auto; */
+  padding: 1em;
+ 
+}
 
+.introText > p {
+  max-width: 800px;
+  margin: auto;
+  
 }
 
 .categoryForm {
@@ -95,9 +104,6 @@ a {
   border: 2px solid#2B957D;
   display: block;
   margin: auto;
-  /* left: 50%;
-  transform: translateX(-50%);
-  position: fixed; */
   transition: background-color 0.5s ease-in-out;
   outline: none;
   letter-spacing: 0.1em;
@@ -164,15 +170,53 @@ a {
   background-color: #E8AA43;
 }
 
+.carouselContainer {
+  width: 100%;
+  margin-top: 3em;
+  padding-top: 3em;
+  margin-bottom: 2em;
+  display: flex;
+
+}
+
+.sliderimg{
+  width: 100%;
+/*   max-width: 800px; */
+  max-height: 70vh;
+  margin: 1em auto 2em auto;
+  object-fit: cover;
+  opacity: 80%;
+  
+}
+
 .menuContainer {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
   justify-content: space-evenly;
-  align-content: center;
+  
+  align-items: center;
   margin: auto;
-  padding-top: 5em;
   margin-bottom: 5em;
+}
+
+.aboutDescription {
+  padding-bottom: 3em;
+  color: #E8AA43;
+  line-height: 2em;
+  font-weight: 600;
+  background-color: black;
+  padding: 2em;
+  margin-bottom: 2em;
+  border-radius: 15px;
+}
+
+.waiting {
+  letter-spacing: 0.7em;
+  padding-bottom: 2em;
+  font-weight: 700;
+  font-size: 2em;
+  color: #5fc5ae;
 }
 
 .imageMenuContainer {
@@ -184,35 +228,6 @@ a {
 .imageMenu {
   margin: 1em 0 2em 0;
   border-radius: 50%;
-}
-
-.textImageMenu {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3.5em;
-  text-transform: lowercase;
-  display: none;
-  font-weight: 800;
-  width: 80%;
-  color:#04a985;
-}
-
-.imageMenuContainer:hover > .imageMenu {
-  opacity: 30%;
-}
-
-.imageMenuContainer:focus > .imageMenu {
-  opacity: 30%;
-}
-
-.imageMenuContainer:hover > .textImageMenu {
-  display: block;
-}
-
-.imageMenuContainer:focus > .textImageMenu {
-  display: block;
 }
 
 .errorDisplay {
@@ -248,20 +263,15 @@ a {
   }
 }
 
-/* @media screen and (min-width: 1100px) {
-  .searchBar {
-    opacity: 1;
-    position: static;
-    margin: auto;
-    left: inherit;
-    transform: inherit;
-  }
-} */
-
 @media screen and (max-width: 700px) {
   .dishCard {
     width: 100%;
     padding: 2em 0 0 0;
+  }
+
+  .introText {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
   }
 }
 
