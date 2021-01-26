@@ -2,6 +2,7 @@ import React from 'react';
 
 const DishCard = ({ name, description, image, price, available }) => {
 
+
     return (
         <div className='dishCard shadow-lg'>
             <img className='shadow-lg p-0' src={image} />
