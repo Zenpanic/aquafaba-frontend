@@ -12,7 +12,7 @@ const Home = () => {
         <img className='animate-pulse mainLogo' src='/images/logo_green_website.png' />
       </div>
 
-      <div className='introText text-center font-mono bg-opacity-85 bg-black'>
+      <div className='introText text-center font-mono'>
         <p>Located in the heart of the city of Rennes, Aquafaba Temple
         is the delicious promise of an authentic vegetarian cuisine, inspired by
         cultures from all around the globe.</p>

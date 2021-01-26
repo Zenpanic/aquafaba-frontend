@@ -54,15 +54,14 @@ a {
   font-size: large;
   font-weight: 600;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  /* margin: auto; */
+  background-color: #3f3f3f;
   padding: 1em;
  
 }
 
 .introText > p {
   max-width: 800px;
-  margin: auto;
-  
+  margin: auto;  
 }
 
 .categoryForm {
@@ -185,7 +184,7 @@ a {
   max-height: 70vh;
   margin: 1em auto 2em auto;
   object-fit: cover;
-  opacity: 80%;
+  opacity: 90%;
   
 }
 
@@ -205,7 +204,7 @@ a {
   color: #E8AA43;
   line-height: 2em;
   font-weight: 600;
-  background-color: black;
+  background-color: #3f3f3f;
   padding: 2em;
   margin-bottom: 2em;
   border-radius: 15px;
