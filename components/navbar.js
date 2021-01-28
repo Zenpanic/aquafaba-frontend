@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { useCartState } from '../context/cart';
 
 const Navbar = () => {
+
+    const { content } = useCartState();
 
     return (
         <nav className='navbar font-mono fixed bg-green-200 bg-opacity-50 top-0'>
@@ -20,8 +23,11 @@ const Navbar = () => {
                 </Link>
                 </li>
                 <li id="cart">
+                    <p>{content.length}</p>
                     <Link href="/cart">
-                        <a><img src="/images/empty_cart.png" /></a>
+                        <a>
+                            {content.length ? (<img src="/images/full_cart.png" />) : (<img src="/images/empty_cart.png" />)}
+                        </a>
                     </Link>
                 </li>
             </ul>

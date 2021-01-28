@@ -2,7 +2,7 @@ import { useCartState } from '../context/cart';
 
 const DishCard = ({ name, description, image, price, available }) => {
 
-    const { content, addContent } = useCartState();
+    const { content, addContent, itemId } = useCartState();
 
     return (
 
@@ -15,7 +15,9 @@ const DishCard = ({ name, description, image, price, available }) => {
                 className='addToCart animate-pulse'
                 onClick={() => addContent({
                     price: price,
-                    name: name
+                    name: name,
+                    image: image,
+                    id: itemId
                 })}>
                 Add to Cart
             </p>) : null
