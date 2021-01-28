@@ -43,7 +43,7 @@ const Home = () => {
           <p>Phone: +33 2 34 56 78 90</p>
         </div>
         <div className='imageMenuContainer'>
-          <img className='imageMenu shadow-2xl' src='/images/about_us.jpg' />
+          <img className='imageMenu shadow-2xl' src='/images/about_us.webp' />
         </div>
 
       </div>
