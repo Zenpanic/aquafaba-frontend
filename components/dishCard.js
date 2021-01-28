@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../components/cartProvider';
-
-
+import { useCartState } from '../context/cart';
 
 const DishCard = ({ name, description, image, price, available }) => {
 
-    const { content, addContent } = useContext(CartContext);
+    const { content, addContent } = useCartState();
 
     return (
 
@@ -16,10 +13,14 @@ const DishCard = ({ name, description, image, price, available }) => {
             <p className='dishPrice'>{price}€</p>
             {available ? (<p
                 className='addToCart animate-pulse'
-                onClick={() => addContent({ name: name, price: price })}>
+                onClick={() => addContent({
+                    price: price,
+                    name: name
+                })}>
                 Add to Cart
-            </p>) : null}
-        </div>
+            </p>) : null
+            }
+        </div >
 
     )
 }

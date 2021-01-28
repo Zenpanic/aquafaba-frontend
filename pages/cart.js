@@ -1,10 +1,9 @@
 import Layout from "../components/layout";
-import { CartContext } from '../components/cartProvider';
-import { useContext } from 'react';
+import { useCartState } from '../context/cart';
 
 const Cart = () => {
 
-    const [content, addContent] = useContext(CartContext);
+    const { content, addContent } = useCartState();
 
     console.log(content);
 
