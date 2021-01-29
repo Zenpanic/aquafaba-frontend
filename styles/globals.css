@@ -244,8 +244,29 @@ a {
   padding-top: 3em;
 }
 
+.loginContainer {
+  margin: 7em auto 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+.loginButton {
+  border: 2px solid black;
+  background-color:  #2B957D;
+  padding: 1em;
+  color: white;
+  font-weight: 600;
+  font-size: larger;
+  line-height: 2em;
+}
+
+.loginButton:active, .loginButton:hover {
+  background-color: #E8AA43;
+  color: white;
+}
+
 .cartContainer {
-  margin: 10em auto 5em auto;
+  margin: 3em auto 5em auto;
   width: 80%;
 }
 
@@ -284,8 +305,7 @@ a {
 
 .cartImage {
   width: 200px;
-  height: auto;
-  
+  height: auto;  
 }
 
 .removeItem {

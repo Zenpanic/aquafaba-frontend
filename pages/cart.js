@@ -1,6 +1,16 @@
 import Layout from "../components/layout";
 import { useCartState } from '../context/cart';
 import { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+const LoginButton = () => {
+
+    const { loginWithRedirect } = useAuth0();
+
+    return <button className='loginButton font-mono' onClick={() => loginWithRedirect()}>Log In / Sign Up</button>;
+
+};
+
 
 const Cart = () => {
 
@@ -37,6 +47,9 @@ const Cart = () => {
     return (
 
         <Layout>
+            <div className='loginContainer'>
+                <LoginButton />
+            </div>
             <div className='cartContainer font-mono'>
                 <div className='cart'>
                     <ul className='cartList'>
