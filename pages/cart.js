@@ -1,42 +1,24 @@
 import Layout from "../components/layout";
 import { useCartState } from '../context/cart';
 import { useState, useEffect } from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
-
-const LoginButton = () => {
-
-    const { loginWithRedirect } = useAuth0();
-
-    return (
-        <button className='loginButton font-mono' onClick={() => loginWithRedirect()}>
-            Log In / Sign Up</button>
-    );
-
-};
-
-const LogoutButton = () => {
-
-    const { logout } = useAuth0();
-
-    return (
-        <button onClick={() => logout({ returnTo: window.location.origin })}>
-            Log Out
-        </button>
-    );
-};
+import CartForm from '../components/cartForm';
 
 const Cart = () => {
 
-    const { isAuthenticated } = useAuth0;
-
-    const { content, addContent, removeContent } = useCartState();
-
+    const { content, removeContent } = useCartState();
     const [priceArray, setPriceArray] = useState([]);
-
     const [dishList, setDishList] = useState([]);
+    const [finalPrice, setFinalPrice] = useState('');
+    const [contactForm, setContactForm] = useState();
 
     const getSum = (total, num) => {
         return total + num;
+    }
+
+    const openContactForm = () => {
+        if (dishList.length) {
+            setContactForm(<CartForm price={finalPrice} products={dishList} />);
+        }
     }
 
     useEffect(() => {
@@ -57,20 +39,13 @@ const Cart = () => {
             </li>
         )))
 
-    })
+        setFinalPrice(priceArray.reduce(getSum, 0));
+
+    }, [])
 
     return (
 
         <Layout>
-            <div className='loginContainer'>
-                {isAuthenticated ? (
-                    <>
-                        <LogoutButton />
-                        <UserProfile />
-                    </>
-                ) : (<LoginButton />)
-                }
-            </div>
             <div className='cartContainer font-mono'>
                 <div className='cart'>
                     <ul className='cartList'>
@@ -84,14 +59,17 @@ const Cart = () => {
                         <div className='totalSubContainer'>
                             <div className='totalText'>
                                 <p>Total</p>
-                                <p className='totalPrice'>{priceArray.reduce(getSum, 0)}€</p>
+                                <p className='totalPrice'>{finalPrice}€</p>
                             </div>
-                            <button className='totalPay shadow-xl'>Checkout</button>
+                            <button className='totalPay shadow-xl' onClick={openContactForm}>Checkout</button>
                         </div>
                         <br />
                         <hr />
                     </div>
                 </div>
+                <br />
+                <br />
+                {contactForm}
             </div>
         </Layout>
 
