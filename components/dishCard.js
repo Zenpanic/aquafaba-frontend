@@ -22,7 +22,7 @@ const DishCard = ({ name, description, image, price, available }) => {
                 Add to Cart
             </p>) : null
             }
-        </div >
+        </div>
 
     )
 }
