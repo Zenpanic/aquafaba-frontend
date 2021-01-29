@@ -7,12 +7,27 @@ const LoginButton = () => {
 
     const { loginWithRedirect } = useAuth0();
 
-    return <button className='loginButton font-mono' onClick={() => loginWithRedirect()}>Log In / Sign Up</button>;
+    return (
+        <button className='loginButton font-mono' onClick={() => loginWithRedirect()}>
+            Log In / Sign Up</button>
+    );
 
 };
 
+const LogoutButton = () => {
+
+    const { logout } = useAuth0();
+
+    return (
+        <button onClick={() => logout({ returnTo: window.location.origin })}>
+            Log Out
+        </button>
+    );
+};
 
 const Cart = () => {
+
+    const { isAuthenticated } = useAuth0;
 
     const { content, addContent, removeContent } = useCartState();
 
@@ -48,7 +63,13 @@ const Cart = () => {
 
         <Layout>
             <div className='loginContainer'>
-                <LoginButton />
+                {isAuthenticated ? (
+                    <>
+                        <LogoutButton />
+                        <UserProfile />
+                    </>
+                ) : (<LoginButton />)
+                }
             </div>
             <div className='cartContainer font-mono'>
                 <div className='cart'>
