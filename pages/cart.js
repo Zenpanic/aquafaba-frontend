@@ -1,34 +1,20 @@
 import Layout from "../components/layout";
 import { useCartState } from '../context/cart';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CartForm from '../components/cartForm';
 
 const Cart = () => {
 
     const { content, removeContent } = useCartState();
-    const [priceArray, setPriceArray] = useState([]);
-    const [dishList, setDishList] = useState([]);
-    const [finalPrice, setFinalPrice] = useState('');
     const [contactForm, setContactForm] = useState();
 
     const getSum = (total, num) => {
         return total + num;
     }
 
-    const openContactForm = () => {
-        if (dishList.length) {
-            setContactForm(<CartForm price={finalPrice} products={dishList} />);
-        }
-    }
-
-    useEffect(() => {
-
-        setPriceArray(content.map(dish => {
-            return dish.price;
-        }));
-
-        setDishList(content.map(dish => (
-            <li className='cartElement'>
+    const dishList = () => {
+        return (content.map(dish => (
+            <li className='cartElement' key={dish.id}>
                 <img className='cartImage' src={dish.image} />
                 <p className='dishCartName'>{dish.name}</p>
                 <p className='dishCartPrice'>{dish.price}€</p>
@@ -38,20 +24,34 @@ const Cart = () => {
                 >Remove</span></p>
             </li>
         )))
+    }
 
-        setFinalPrice(priceArray.reduce(getSum, 0));
+    const productList = () => {
+        if (content.length) {
+            return (
+                content.map(dish => (dish.name))
+            )
+        }
+    }
 
-    }, [])
+    const finalPrice = () => {
+        return (content.map(dish => {
+            return dish.price;
+        }).reduce(getSum, 0))
+    }
+
+    const openContactForm = () => {
+        if (content.length) {
+            setContactForm(<CartForm />);
+        }
+    }
 
     return (
-
         <Layout>
             <div className='cartContainer font-mono'>
                 <div className='cart'>
                     <ul className='cartList'>
-                        {
-                            dishList
-                        }
+                        {dishList()}
                     </ul>
                     <div className='total'>
                         <hr />
@@ -59,7 +59,9 @@ const Cart = () => {
                         <div className='totalSubContainer'>
                             <div className='totalText'>
                                 <p>Total</p>
-                                <p className='totalPrice'>{finalPrice}€</p>
+                                {
+                                    content.length ? (<p className='totalPrice'>{finalPrice()}€</p>) : (<p className='totalPrice'>0€</p>)
+                                }
                             </div>
                             <button className='totalPay shadow-xl' onClick={openContactForm}>Checkout</button>
                         </div>
@@ -69,10 +71,9 @@ const Cart = () => {
                 </div>
                 <br />
                 <br />
-                {contactForm}
+                {content.length ? (contactForm) : null}
             </div>
         </Layout>
-
     )
 }
 

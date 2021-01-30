@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useCartState } from '../context/cart';
 
-const CartForm = (props) => {
+const CartForm = () => {
 
+    const { content, removeContent } = useCartState();
     const [contact, setContact] = useState({});
     const [formName, setFormName] = useState('');
     const [formAdress, setFormAdress] = useState('');
@@ -25,6 +27,26 @@ const CartForm = (props) => {
         setFormPhone(e.target.value);
     }
 
+    const getSum = (total, num) => {
+        return total + num;
+    }
+
+    const productList = () => {
+        if (content.length) {
+            return (
+                content.map(dish => (dish.name))
+            )
+        }
+    }
+
+    const finalPrice = () => {
+        return (content.map(dish => {
+            return dish.price;
+        }).reduce(getSum, 0))
+    }
+
+    console.log(finalPrice());
+
     const submitForm = () => {
 
         if (formName && formAdress && formCity && formPhone) {
@@ -34,11 +56,9 @@ const CartForm = (props) => {
                 adress: formAdress,
                 city: formCity,
                 phone: formPhone,
-                products: props.products,
-                price: props.price
+                products: productList(),
+                price: finalPrice()
             })
-
-            console.log(contact);
 
             // A COMPLETER !!! SEND A MAIL OR SOMETHING
             // SEND A SUCCESS MESSAGE TO USER
@@ -46,15 +66,16 @@ const CartForm = (props) => {
             // BY THE WAY, PUT SMOOTHSCROLLING ON HOMEPAGE
             // AND NAV TAG AT THE TOP OF IT
 
+            // BLOCK REMOVE BUTTONS ONCE CHECKOUT COMPLETED
+            // AND CLEANUP THE CART + CONTENT
+
         } else {
-
             setFormComplete('Sorry, you must properly fill up all the fields so we can handle your order.')
-
         }
-
     }
 
     return (
+
         <div className='cartFormContainer' id='contactForm'>
             <div className='formElement'>
                 <label for='formName'>Your Name</label>

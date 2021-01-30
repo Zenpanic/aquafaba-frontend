@@ -18,16 +18,10 @@ export function CartProvider({ children }) {
 
     const removeContent = (id) => {
 
-        let productArray = content;
-        for (let i = 0; i < productArray.length; i++) {
-            if (productArray[i].id === id) {
-                console.log(productArray[i])
-                productArray.splice(i, 1);
-            }
-        }
-        setContent(productArray);
-    }
+        const dishes = content.filter(dish => dish.id !== id);
+        setContent(dishes);
 
+    }
 
     let sharedState = {
         content,

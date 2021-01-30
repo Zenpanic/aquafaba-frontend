@@ -5,8 +5,6 @@ import DishCard from '../components/dishCard';
 
 const api_url = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-/* const fetcher = (...args) => fetch(...args).then(res => res.json()); */
-
 export const getStaticProps = async () => {
     const res = await fetch(api_url + '/dishes');
     const data = await res.json();
@@ -33,9 +31,6 @@ const Menu = ({ data }) => {
         setCategory(e.target.value);
     }
 
-    /* const { data, error } = useSWR(`${api_url}/dishes`, fetcher); */
-
-    /* if (error) return <Layout><div>Failed to load</div></Layout> */
     if (!data) return <Layout><div>Loading...</div></Layout>
 
     const filteredDishes = data.filter(filteredDish => {
@@ -84,9 +79,7 @@ const Menu = ({ data }) => {
                 }
             </div>
         </Layout>
-
     )
-
 }
 
 export default Menu;
