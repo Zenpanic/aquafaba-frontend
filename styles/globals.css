@@ -348,6 +348,78 @@ a {
   font-weight: 800;
 }
 
+.cartFormContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin: auto;
+  border: 2px solid #2B957D;
+  padding: 0.5em;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+
+.formElement {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  padding: 0.5em 0 0.5em 0;
+}
+
+.formField {
+  border: 1px solid #2B957D;
+}
+
+.formSubmit {
+  border: 1px solid ;
+  padding: 0.5em 0 0.5em 0;
+  margin-top: 1em;
+  background-color: #2B957D;
+  color: white;
+  font-weight: 600;
+  line-height: 2em;
+  font-size: 1.5em;
+}
+
+.formSubmit:active {
+  background-color: #E8AA43;
+}
+
+.cartSuccess {
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+
+.orderProduct, .orderAdress {
+  padding: 0.5em 0 0.5em 0;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #2B957D;
+}
+
+.orderPrice {
+  color:#F16A7F;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.zentown {
+  color: #2B957D;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
 @media screen and (min-width: 500px) {
   .headerDiv {
   margin-top: 3em;

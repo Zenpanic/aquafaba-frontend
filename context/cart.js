@@ -20,14 +20,18 @@ export function CartProvider({ children }) {
 
         const dishes = content.filter(dish => dish.id !== id);
         setContent(dishes);
+    }
 
+    const resetContent = () => {
+        setContent([]);
     }
 
     let sharedState = {
         content,
         addContent,
         itemId,
-        removeContent
+        removeContent,
+        resetContent
     }
 
     return (

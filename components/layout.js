@@ -31,6 +31,10 @@ const Layout = ({ children }) => {
             </Head>
             <Navbar />
             {children}
+            <footer className='font-mono'>
+                <p>Created by <a className='zentown' target="_blank" rel="noopener" href="https://zentown.dev">Zentown</a>.</p>
+                <p>This is a demo website, not a real restaurant. Payments are deactivated.</p>
+            </footer>
         </>
     )
 }
